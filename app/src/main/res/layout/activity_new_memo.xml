@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_memo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hyunjunian.www.justamemo.NewMemoActivity">
+
+
+    <TextView
+        android:id="@+id/topbar_new_memo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:elevation="1dp"
+        android:text="새 메모"/>
+
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar_new_memo"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop" />
+
+    <EditText
+        android:id="@+id/field_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar_new_memo"
+        android:padding="10dp"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:background="@null"
+        android:scrollHorizontally="false"
+        android:hint="새 메모..." />
+
+    <Button
+        android:id="@+id/submit_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="완료"/>
+
+</RelativeLayout>

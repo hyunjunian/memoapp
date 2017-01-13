@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1077233631015",
+    "firebase_url": "https://justamemo-452ff.firebaseio.com",
+    "project_id": "justamemo-452ff",
+    "storage_bucket": "justamemo-452ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077233631015:android:dbc2e7de4eea6374",
+        "android_client_info": {
+          "package_name": "com.hyunjunian.www.justamemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077233631015-etopsn3su7bvaq5g0ird0b4tid2b0vj5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hyunjunian.www.justamemo",
+            "certificate_hash": "DF99DC0FB9E6257A81D97F58C8311E34A9E29F95"
+          }
+        },
+        {
+          "client_id": "1077233631015-k4cli96fdfgprhke764m2sn94eo9a3qr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP2dO3EibYQRTA9JYf943IxuH4Y3bYyFI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077233631015-k4cli96fdfgprhke764m2sn94eo9a3qr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

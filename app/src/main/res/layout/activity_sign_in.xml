@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sign_in"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hyunjunian.www.justamemo.SignInActivity">
+
+    <RelativeLayout
+        android:id="@+id/topbar_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:elevation="2dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_topbar"
+            android:scaleType="fitCenter"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/bg_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar_sign_in"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:id="@+id/layout_email_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar_sign_in"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginTop="120dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
+
+        <EditText
+            android:id="@+id/field_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:background="@color/cloud"
+            android:textSize="14sp"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/field_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:background="@color/cloud"
+            android:textSize="14sp"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_email_password"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
+
+        <Button
+            android:id="@+id/button_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/sign_in" />
+
+        <Button
+            android:id="@+id/button_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/sign_up" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
