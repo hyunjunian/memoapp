@@ -1,6 +1,7 @@
 package com.hyunjunian.www.justamemo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class MemoDetailActivity extends BaseActivity implements View.OnClickList
     private static final String TAG = "MemoDetailActivity";
 
     public static final String EXTRA_Memo_KEY = "memo_key";
+    public static final String EXTRA_Memo_BODY = "memo_body";
 
     private DatabaseReference mMemoReference;
     private ValueEventListener mMemoListener;
@@ -64,6 +66,7 @@ public class MemoDetailActivity extends BaseActivity implements View.OnClickList
         mEditView = (TextView) findViewById(R.id.bt_edit_memo);
         mSizeSmallView = (TextView) findViewById(R.id.bt_text_size_small);
         mSizeBigView = (TextView) findViewById(R.id.bt_text_size_big);
+        mEditView.setOnClickListener(this);
         mSizeSmallView.setOnClickListener(this);
         mSizeBigView.setOnClickListener(this);
 
@@ -125,6 +128,12 @@ public class MemoDetailActivity extends BaseActivity implements View.OnClickList
             mBodyView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
             mSizeBigView.setTextColor(Color.BLACK);
             mSizeSmallView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
+        else if(i==R.id.bt_edit_memo){
+            Intent intent = new Intent(MemoDetailActivity.this, EditMemoActivity.class);
+            intent.putExtra(MemoDetailActivity.EXTRA_Memo_KEY, mMemoKey);
+            intent.putExtra(MemoDetailActivity.EXTRA_Memo_BODY, mBodyView.getText().toString());
+            startActivity(intent);
         }
     }
 }

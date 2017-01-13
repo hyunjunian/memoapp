@@ -1,5 +1,6 @@
 package com.hyunjunian.www.justamemo;
 
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,14 +21,19 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NewMemoActivity extends BaseActivity {
+public class EditMemoActivity extends BaseActivity {
 
-    private static final String TAG = "NewMemoActivity";
+    private static final String TAG = "EditMemoActivity";
     private static final String REQUIRED = "메모를 작성해주세요!";
+    public static final String EXTRA_Memo_KEY = "memo_key";
+    public static final String EXTRA_Memo_BODY = "memo_body";
 
     // [START declare_database_ref]
     private DatabaseReference mDatabase;
     // [END declare_database_ref]
+
+    private String mMemoKey;
+    private String mMemoBody;
 
     private TextView mTopbar;
     private EditText mBodyField;
@@ -36,19 +42,27 @@ public class NewMemoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_memo);
+        setContentView(R.layout.activity_edit_memo);
+
+        mMemoKey = getIntent().getStringExtra(EXTRA_Memo_KEY);
+        mMemoBody = getIntent().getStringExtra(EXTRA_Memo_BODY);
+
+        if (mMemoKey == null) {
+            throw new IllegalArgumentException("Must pass EXTRA_Memo_KEY");
+        }
 
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
 
-        mTopbar = (TextView) findViewById(R.id.topbar_new_memo);
-        mBodyField = (EditText) findViewById(R.id.field_body);
-        mSubmitButton = (Button) findViewById(R.id.submit_memo);
+        mTopbar = (TextView) findViewById(R.id.topbar_edit_memo);
+        mBodyField = (EditText) findViewById(R.id.field_edit_body);
+        mSubmitButton = (Button) findViewById(R.id.submit_edit_memo);
 
 
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         mTopbar.setText(currentDateTimeString);
+        mBodyField.setText(mMemoBody);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,13 +97,13 @@ public class NewMemoActivity extends BaseActivity {
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
-                            Toast.makeText(NewMemoActivity.this,
+                            Toast.makeText(EditMemoActivity.this,
                                     "Error: could not fetch user.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new memo
-                            writeNewMemo(userId, user.username, body, DateFormat.getDateTimeInstance().format(new Date()));
-                            Toast.makeText(NewMemoActivity.this, "메모 완료!", Toast.LENGTH_SHORT).show();
+                            editMemo(userId, user.username, body, DateFormat.getDateTimeInstance().format(new Date()));
+                            Toast.makeText(EditMemoActivity.this, "메모 수정!", Toast.LENGTH_SHORT).show();
                         }
 
                         // Finish this Activity, back to the stream
@@ -119,10 +133,10 @@ public class NewMemoActivity extends BaseActivity {
     }
 
     // [START write_fan_out]
-    private void writeNewMemo(String userId, String username, String body, String date) {
+    private void editMemo(String userId, String username, String body, String date) {
         // Create new memo at /user-memos/$userid/$memoid and at
         // /memos/$memoid simultaneously
-        String key = mDatabase.child("memos").push().getKey();
+        String key = mMemoKey;
         Memo memo = new Memo(userId, username, body, date);
         Map<String, Object> memoValues = memo.toMap();
 
