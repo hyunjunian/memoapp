@@ -20,13 +20,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topbar_memo_detail"
+        android:layout_above="@+id/bottombar"
         android:src="@drawable/bg"
         android:scaleType="centerCrop" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/topbar_memo_detail">
+        android:layout_below="@+id/topbar_memo_detail"
+        android:layout_above="@+id/bottombar">
 
         <TextView
             android:id="@+id/memo_body"
@@ -49,6 +51,7 @@
 
 
     <LinearLayout
+        android:id="@+id/bottombar"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,6 +83,5 @@
             android:text="가"/>
 
     </LinearLayout>
-
 
 </RelativeLayout>

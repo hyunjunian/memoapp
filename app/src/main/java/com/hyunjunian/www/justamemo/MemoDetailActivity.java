@@ -83,10 +83,15 @@ public class MemoDetailActivity extends BaseActivity implements View.OnClickList
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Memo object and use the values to update the UI
                 Memo memo = dataSnapshot.getValue(Memo.class);
-                // [START_EXCLUDE]
-                mBodyView.setText(memo.body);
-                mTopbarView.setText(memo.date);
-                // [END_EXCLUDE]
+                if(memo==null){
+                    MemoDetailActivity.this.finish();
+                }
+                else {
+                    // [START_EXCLUDE]
+                    mBodyView.setText(memo.body);
+                    mTopbarView.setText(memo.date);
+                    // [END_EXCLUDE]
+                }
             }
 
             @Override

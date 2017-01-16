@@ -45,4 +45,15 @@
         android:textColor="@color/colorPrimaryDark"
         android:text="완료"/>
 
+    <TextView
+        android:id="@+id/delete_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/danger"
+        android:text="메모 삭제"/>
+
 </RelativeLayout>

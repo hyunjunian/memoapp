@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".MemoDetailActivity" />
         <activity android:name=".NewMemoActivity" />
-        <activity android:name=".EditMemoActivity"></activity>
+        <activity android:name=".EditMemoActivity" />
+        <activity android:name=".SettingActivity"></activity>
     </application>
 
 </manifest>

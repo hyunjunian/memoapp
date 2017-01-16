@@ -5,4 +5,5 @@
     <color name="colorAccent">#555555</color>
     <color name="line">#DDDDDD</color>
     <color name="cloud">#55FFFFFF</color>
+    <color name="danger">#CCFF2222</color>
 </resources>

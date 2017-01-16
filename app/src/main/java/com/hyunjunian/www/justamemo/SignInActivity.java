@@ -136,14 +136,14 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(mEmailField.getText().toString())) {
-            mEmailField.setError("Required");
+            mEmailField.setError("이메일 입력!");
             result = false;
         } else {
             mEmailField.setError(null);
         }
 
         if (TextUtils.isEmpty(mPasswordField.getText().toString())) {
-            mPasswordField.setError("Required");
+            mPasswordField.setError("비밀번호 입력!");
             result = false;
         } else {
             mPasswordField.setError(null);

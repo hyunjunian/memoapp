@@ -28,17 +28,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topbar_sign_in"
+        android:layout_above="@+id/bottom_sign_in"
         android:src="@drawable/bg"
         android:scaleType="centerCrop" />
 
     <LinearLayout
-        android:id="@+id/layout_email_password"
+        android:id="@+id/layout_sign_in"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/topbar_sign_in"
+        android:layout_above="@+id/bottom_sign_in"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_marginTop="120dp"
+        android:gravity="center"
         android:paddingLeft="40dp"
         android:paddingRight="40dp">
 
@@ -68,19 +70,6 @@
             android:inputType="textPassword"
             android:maxLines="1" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_email_password"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp">
-
         <Button
             android:id="@+id/button_sign_in"
             android:layout_width="match_parent"
@@ -99,5 +88,14 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/bottom_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        android:text="언어: 한국어"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

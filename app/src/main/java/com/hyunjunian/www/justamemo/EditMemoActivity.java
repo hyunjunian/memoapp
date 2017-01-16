@@ -38,6 +38,7 @@ public class EditMemoActivity extends BaseActivity {
     private TextView mTopbar;
     private EditText mBodyField;
     private Button mSubmitButton;
+    private TextView mDeleteMemo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class EditMemoActivity extends BaseActivity {
         mTopbar = (TextView) findViewById(R.id.topbar_edit_memo);
         mBodyField = (EditText) findViewById(R.id.field_edit_body);
         mSubmitButton = (Button) findViewById(R.id.submit_edit_memo);
+        mDeleteMemo = (TextView) findViewById(R.id.delete_memo);
 
 
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
@@ -68,6 +70,12 @@ public class EditMemoActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 submitMemo();
+            }
+        });
+        mDeleteMemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteMemo();
             }
         });
     }
@@ -147,4 +155,10 @@ public class EditMemoActivity extends BaseActivity {
         mDatabase.updateChildren(childUpdates);
     }
     // [END write_fan_out]
+
+    private void deleteMemo() {
+        mDatabase.child("memos").child(mMemoKey).removeValue();
+        mDatabase.child("user-memos").child(getUid()).child(mMemoKey).removeValue();
+        this.finish();
+    }
 }

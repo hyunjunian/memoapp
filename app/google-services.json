@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1077233631015-88ub1tm2ivthve7h8qttlkti6rn0br6c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hyunjunian.www.justamemo",
+            "certificate_hash": "2EA96BD1793DB71D397671A69591113689DAC485"
+          }
+        },
+        {
           "client_id": "1077233631015-etopsn3su7bvaq5g0ird0b4tid2b0vj5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
